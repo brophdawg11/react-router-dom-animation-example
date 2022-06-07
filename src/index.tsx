@@ -12,6 +12,7 @@ import {
 } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 
+// Outlet has to be frozen so we can animate out the old view
 function AnimatedOutlet() {
   const o = useOutlet();
   const [outlet] = useState(o);
@@ -80,6 +81,7 @@ function PageWrapper({ children }) {
 export const Page = () => {
   let params = useParams();
   let data = useLoaderData();
+  // Loader data has to be frozen so we can animate out the old view
   let [stableData] = useState(data);
 
   return (
